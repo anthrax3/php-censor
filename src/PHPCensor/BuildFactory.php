@@ -15,16 +15,16 @@ class BuildFactory
     /**
      * @param $buildId
      *
-     * @throws \Exception
-     *
      * @return Build
+     *
+     * @throws \Exception
      */
     public static function getBuildById($buildId)
     {
         $build = Factory::getStore('Build')->getById($buildId);
 
         if (empty($build)) {
-            throw new \Exception('Build ID ' . $buildId . ' does not exist.');
+            throw new \Exception('Build #' . $buildId . ' does not exist in the database.');
         }
 
         return self::getBuild($build);
